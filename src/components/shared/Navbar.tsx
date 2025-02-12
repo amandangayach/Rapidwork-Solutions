@@ -32,7 +32,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-black/10 backdrop-blur-md border-b border-white/10"
+          ? "bg-white/10 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
       )}
     >
@@ -41,7 +41,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             href="/" 
-            className="text-xl font-bold bg-gradient-to-r from-primary-200 to-secondary-200 bg-clip-text text-transparent"
+            className="text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
           >
             Rapidwork
           </Link>
@@ -52,10 +52,10 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-zinc-100/80 hover:text-white transition-colors relative group"
+                className="text-zinc-800/80 hover:text-zinc-900 transition-colors relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-200 to-secondary-200 transition-all group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all group-hover:w-full" />
               </Link>
             ))}
             
@@ -69,7 +69,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-white">
+          <button className="md:hidden text-zinc-900">
             <svg
               className="w-6 h-6"
               fill="none"

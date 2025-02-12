@@ -10,8 +10,8 @@ export default {
   theme: {
   	extend: {
   		colors: {
-			background: "#090909",
-			foreground: "#F3F3F3",
+			background: "#FFFFFF",
+			foreground: "#090909",
 			primary: {
 				"DEFAULT": "#4169e1",
 				"100": "#e3e8ff",
@@ -38,6 +38,9 @@ export default {
 				"900": "#330c00",
 				"950": "#310000",
 			}
+		},
+		fontFamily: {
+			sans: ["var(--font-poppins)"],
 		},
 		keyframes: {
 			"fade-in": {

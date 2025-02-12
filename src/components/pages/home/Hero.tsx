@@ -13,12 +13,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-bold text-white"
+            className="text-4xl md:text-6xl font-bold text-foreground"
           >
             <h1>
-              <span className="block text-2xl md:text-3xl mb-4 text-primary-300">Rapidwork Solutions</span>
+              <span className="block text-2xl md:text-3xl mb-4 text-primary-600">Rapidwork Solutions</span>
               Building Tomorrow's{' '}
-              <span className="bg-gradient-to-r from-primary-200 to-secondary-200 bg-clip-text text-transparent">Digital Solutions</span>
+              <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Digital Solutions</span>
             </h1>
           </MotionDiv>
 
@@ -26,7 +26,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="mt-6 text-lg md:text-xl text-zinc-100/80 leading-relaxed font-medium max-w-2xl mx-auto"
+            className="mt-6 text-lg md:text-xl text-foreground/80 leading-relaxed font-medium max-w-2xl mx-auto"
           >
             Enterprise IT Services & Custom Software Development
           </MotionP>
