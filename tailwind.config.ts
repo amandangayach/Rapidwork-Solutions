@@ -38,7 +38,33 @@ export default {
 				"900": "#330c00",
 				"950": "#310000",
 			}
-		}
+		},
+		keyframes: {
+			"fade-in": {
+			  "0%": {
+				opacity: "0",
+				transform: "translateY(-10px)",
+			  },
+			  "100%": {
+				opacity: "1",
+				transform: "translateY(0)",
+			  },
+			},
+			"fade-in-up": {
+			  "0%": {
+				opacity: "0",
+				transform: "translateY(10px)",
+			  },
+			  "100%": {
+				opacity: "1",
+				transform: "translateY(0)",
+			  },
+			},
+		  },
+		  animation: {
+			"fade-in": "fade-in 1s ease-out",
+			"fade-in-up": "fade-in-up 1s ease-out 0.5s forwards",
+		  },
   	}
   },
   plugins: [require("tailwindcss-animate")],
