@@ -5,7 +5,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <section aria-label="Hero Section">
+    <section aria-label="Hero Section" className="pt-16">
       <WavyBackground className="max-w-4xl mx-auto text-center" waveOpacity={0.3}>
         <MotionDiv
           initial={{ opacity: 0, y: -20 }}

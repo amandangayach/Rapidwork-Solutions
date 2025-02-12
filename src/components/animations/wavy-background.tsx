@@ -112,7 +112,7 @@ export const WavyBackground = ({
   return (
     <div
       className={cn(
-        "h-screen flex flex-col items-center justify-center",
+        "h-screen flex flex-col items-center justify-center overflow-hidden",
         containerClassName
       )}
     >
@@ -122,6 +122,8 @@ export const WavyBackground = ({
         id="canvas"
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
+          width: '100%',
+          height: '100%'
         }}
       ></canvas>
       <div className={cn("relative z-10", className)} {...props}>
