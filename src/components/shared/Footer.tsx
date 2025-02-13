@@ -1,7 +1,15 @@
-"use client"
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Facebook, Github, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  Facebook,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+} from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,13 +17,14 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-primary-950/90 backdrop-blur-sm">
       {/* Grid Background */}
-      <div 
+      <div
         className="absolute inset-0 w-full h-full opacity-10"
         style={{
           backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
                            linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          maskImage: 'radial-gradient(circle at center, black, transparent 80%)'
+          backgroundSize: "50px 50px",
+          maskImage:
+            "radial-gradient(circle at center, black, transparent 80%)",
         }}
       />
 
@@ -33,19 +42,22 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-xl font-bold text-white">Rapidwork Solutions</h3>
+            <h3 className="text-xl font-bold text-white">
+              Rapidwork Solutions
+            </h3>
             <p className="text-sm">
-              Transforming ideas into digital reality with innovative solutions and cutting-edge technology.
+              Transforming ideas into digital reality with innovative solutions
+              and cutting-edge technology.
             </p>
             <div className="flex gap-4">
               {[
                 { Icon: Facebook, href: "#" },
                 { Icon: Twitter, href: "#" },
                 { Icon: Linkedin, href: "#" },
-                { Icon: Github, href: "#" }
+                { Icon: Github, href: "#" },
               ].map(({ Icon, href }, index) => (
-                <Link 
-                  key={index} 
+                <Link
+                  key={index}
                   href={href}
                   className="hover:text-primary-400 transition-colors"
                 >
@@ -65,13 +77,18 @@ const Footer = () => {
           >
             <h3 className="text-xl font-bold text-white">Quick Links</h3>
             <ul className="space-y-2">
-              {['About Us', 'Services', 'Projects', 'Blog', 'Contact'].map((item, index) => (
-                <li key={index}>
-                  <Link href="#" className="hover:text-primary-400 transition-colors">
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              {["About Us", "Services", "Projects", "Blog", "Contact"].map(
+                (item, index) => (
+                  <li key={index}>
+                    <Link
+                      href="#"
+                      className="hover:text-primary-400 transition-colors"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </motion.div>
 
@@ -86,14 +103,18 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white">Services</h3>
             <ul className="space-y-2">
               {[
-                'Web Development',
-                'Mobile Apps',
-                'Cloud Solutions',
-                'UI/UX Design',
-                'Consulting'
+                "Web Development",
+                "Mobile Apps",
+                "Content Writing",
+                "Digital Marketing",
+                "Business Consulting",
+                "ERP Solutions",
               ].map((service, index) => (
                 <li key={index}>
-                  <Link href="#" className="hover:text-primary-400 transition-colors">
+                  <Link
+                    href="#"
+                    className="hover:text-primary-400 transition-colors"
+                  >
                     {service}
                   </Link>
                 </li>
@@ -113,8 +134,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { Icon: MapPin, text: "123 Business Street, Tech City, 12345" },
-                { Icon: Phone, text: "+1 (234) 567-8900" },
-                { Icon: Mail, text: "contact@rapidwork.com" }
+                { Icon: Phone, text: "+91 (234) 567-8900" },
+                { Icon: Mail, text: "contact@rapidwork.com" },
               ].map(({ Icon, text }, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <Icon size={16} className="text-primary-400" />
@@ -138,8 +159,18 @@ const Footer = () => {
               © {currentYear} Rapidwork Solutions. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-white/60">
-              <Link href="#" className="hover:text-primary-400 transition-colors">Privacy Policy</Link>
-              <Link href="#" className="hover:text-primary-400 transition-colors">Terms of Service</Link>
+              <Link
+                href="#"
+                className="hover:text-primary-400 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="#"
+                className="hover:text-primary-400 transition-colors"
+              >
+                Terms of Service
+              </Link>
             </div>
           </div>
         </motion.div>

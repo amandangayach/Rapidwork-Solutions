@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -14,8 +14,11 @@ const navItems = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -23,6 +26,10 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!mounted) {
+    return null; // Return null on initial render to prevent hydration mismatch
+  }
 
   return (
     <motion.header
@@ -46,7 +53,7 @@ const Navbar = () => {
             Rapidwork
           </Link>
 
-          {/* Navigation Items */}
+          {/* Navigation Items - Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
@@ -59,7 +66,6 @@ const Navbar = () => {
               </Link>
             ))}
             
-            {/* Contact Button */}
             <Link
               href="/contact"
               className="px-4 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 transition-opacity"
@@ -69,7 +75,12 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-zinc-900">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="md:hidden text-zinc-900"
+            aria-label="Toggle menu"
+            type="button"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -80,11 +91,48 @@ const Navbar = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
+                d={isOpen 
+                  ? "M6 18L18 6M6 6l12 12" 
+                  : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence mode="wait">
+          {isOpen && mounted && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden overflow-hidden bg-white/10 backdrop-blur-md rounded-lg mt-2 border border-white/10"
+            >
+              <div className="px-4 py-2 space-y-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-zinc-800/80 hover:text-zinc-900 transition-colors relative group"
+                  >
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all group-hover:w-full" />
+                  </Link>
+                ))}
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-2 mt-2 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 transition-opacity text-center"
+                >
+                  Contact
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </motion.header>
   );

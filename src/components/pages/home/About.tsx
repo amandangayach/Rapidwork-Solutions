@@ -7,8 +7,8 @@ const About = () => {
   return (
     <section className="relative py-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary-100/10 to-background/0" />
-      
-      <div className="container mx-auto px-4">
+
+      <div className="container mx-auto px-4 max-w-7xl">
         <MotionSection
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -23,9 +23,9 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative z-10"
+              className="relative z-10 mr-12"
             >
-              <div className="relative h-[500px] w-full rounded-2xl overflow-hidden">
+              <div className="relative h-[30rem] w-full rounded-2xl overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
                   alt="Team collaboration"
@@ -37,7 +37,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20" />
               </div>
             </MotionDiv>
-            
+
             {/* Decorative Elements */}
             <div className="absolute -bottom-6 -left-6 w-64 h-64 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-full blur-3xl" />
             <div className="absolute -top-6 -right-6 w-64 h-64 bg-gradient-to-r from-secondary-500/10 to-primary-500/10 rounded-full blur-3xl" />
@@ -56,18 +56,24 @@ const About = () => {
                 About Rapidwork Solutions
               </span>
             </h2>
-            
+
             <div className="space-y-4 text-foreground/80">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                At Rapidwork Solutions, we leverage cutting-edge Artificial
+                Intelligence (AI) and machine learning technologies to deliver
+                innovative enterprise IT solutions. Our expertise spans across
+                custom software development, AI integration, and digital
+                transformation, helping businesses stay ahead in today's
+                competitive landscape.
               </p>
-              
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-                in culpa qui officia deserunt mollit anim id est laborum.
+
+              <p className="mb-8">
+                With a proven track record of successful implementations and a
+                dedicated team of experts, we provide scalable, AI-powered
+                solutions that drive efficiency and growth. Our commitment to
+                excellence, combined with state-of-the-art technology and 24/7
+                support, ensures your business receives the highest quality
+                service and exceptional results.
               </p>
 
               {/* Stats */}

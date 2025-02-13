@@ -2,7 +2,7 @@ import { MotionDiv } from "@/components/animations/MotionDiv";
 import { Icons } from "@/components/shared/Icons";
 import React from "react";
 
-type ServiceIcon = "webdev" | "content" | "marketing" | "design" | "erp" | "mobile";
+type ServiceIcon = "webdev" | "content" | "marketing" | "consulting" | "erp" | "mobile";
 
 const services: { title: string; description: string; icon: ServiceIcon; gradient: string }[] = [
   {
@@ -24,9 +24,9 @@ const services: { title: string; description: string; icon: ServiceIcon; gradien
     gradient: "from-orange-500 to-red-500",
   },
   {
-    title: "Graphic Design",
-    description: "Creative visual solutions that bring your brand to life",
-    icon: "design",
+    title: "Business Consultancy",
+    description: "Strategic business solutions and expert consulting for sustainable growth",
+    icon: "consulting",
     gradient: "from-green-500 to-emerald-500",
   },
   {

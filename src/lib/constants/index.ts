@@ -10,8 +10,8 @@ export const aboutData = [
     detail: "Round-the-clock service",
   },
   {
-    number: "5★",
-    label: "Client Rating",
-    detail: "Average satisfaction score",
+    number: "Upto 30%",
+    label: "Cost Savings",
+    detail: "Affordable solutions",
   },
 ];
