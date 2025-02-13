@@ -1,6 +1,6 @@
 "use client"
 import { motion } from 'framer-motion'
-import React, { useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 import MotionDiv from './MotionDiv';
 
 interface GridBackgroundProps {
@@ -20,6 +20,25 @@ interface Strand {
 }
 
 const GridBackground = ({ children }: GridBackgroundProps) => {
+  const [strands, setStrands] = useState<Strand[]>([]);
+  const [diagonalStrands, setDiagonalStrands] = useState<Array<{ id: string; angle: number; blur: number }>>([]);
+
+  useEffect(() => {
+    // Generate strands on client side
+    const newStrands = Array.from({ length: 12 }, (_, i) => 
+      generateStrand(i % 3 === 0)
+    );
+    setStrands(newStrands);
+
+    // Generate diagonal strands
+    const newDiagonalStrands = Array.from({ length: 4 }, () => ({
+      id: Math.random().toString(),
+      angle: Math.random() * 60 - 30,
+      blur: Math.random() * 2 + 1
+    }));
+    setDiagonalStrands(newDiagonalStrands);
+  }, []);
+
   const generateStrand = (isVertical: boolean): Strand => ({
     width: isVertical ? 2 : (Math.random() * 60 + 40),
     height: isVertical ? (Math.random() * 60 + 40) : 2,
@@ -31,11 +50,6 @@ const GridBackground = ({ children }: GridBackgroundProps) => {
     isVertical,
     direction: Math.random() > 0.5 ? 'normal' : 'reverse'
   });
-
-  const electricStrands = useMemo(() => 
-    Array.from({ length: 12 }, (_, i) => 
-      generateStrand(i % 3 === 0)
-    ), []);
 
   return (
     <div className="px-6 py-8 h-full flex items-center justify-center">
@@ -57,9 +71,9 @@ const GridBackground = ({ children }: GridBackgroundProps) => {
         />
 
         {/* Electric Strands */}
-        {electricStrands.map((strand, index) => (
+        {strands.map((strand, index) => (
           <MotionDiv
-            key={index}
+            key={`strand-${index}`}
             className="absolute bg-primary-400/50"
             style={{
               width: strand.width,
@@ -84,18 +98,18 @@ const GridBackground = ({ children }: GridBackgroundProps) => {
           />
         ))}
 
-        {/* Add a few crossing strands for extra effect */}
-        {Array.from({ length: 4 }).map((_, index) => (
+        {/* Diagonal Strands */}
+        {diagonalStrands.map(({ id, angle, blur }) => (
           <MotionDiv
-            key={`diagonal-${index}`}
+            key={id}
             className="absolute bg-primary-400/30"
             style={{
               width: Math.random() * 40 + 30,
               height: 2,
               top: '-60px',
               left: '-60px',
-              filter: `blur(${Math.random() * 2 + 1}px)`,
-              transform: `rotate(${Math.random() * 60 - 30}deg)`,
+              filter: `blur(${blur}px)`,
+              transform: `rotate(${angle}deg)`,
               transformOrigin: 'center'
             }}
             animate={{
