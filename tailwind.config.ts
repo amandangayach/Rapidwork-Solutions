@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+		variables: {
+			'--primary-600-rgb': '59, 130, 246', // Adjust this value to match your primary color
+		  },
   		colors: {
 			background: "#FFFFFF",
 			foreground: "#090909",
