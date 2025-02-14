@@ -68,7 +68,7 @@ const Navbar = () => {
             
             <Link
               href="/contact"
-              className="px-4 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 transition-opacity"
+              className="px-6 py-2 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 transition-opacity"
             >
               Contact
             </Link>
