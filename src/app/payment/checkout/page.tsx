@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
@@ -7,6 +8,14 @@ import { MotionDiv } from "@/components/animations/MotionDiv";
 import { motion } from "framer-motion";
 
 export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CheckoutContent />
+    </Suspense>
+  );
+}
+
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const amount = searchParams.get('amount') || "0";
   const currency = searchParams.get('currency') || "USD";
