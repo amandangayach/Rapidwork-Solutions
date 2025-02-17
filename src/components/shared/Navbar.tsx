@@ -40,7 +40,7 @@ const Navbar = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-white/10 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent"
+          : "bg-transparent text-white"
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +59,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-zinc-800/80 hover:text-zinc-900 transition-colors relative group"
+                className="relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all group-hover:w-full" />
