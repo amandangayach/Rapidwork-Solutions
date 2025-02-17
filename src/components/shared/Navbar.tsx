@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -16,6 +17,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     setMounted(true);
@@ -40,7 +43,8 @@ const Navbar = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-white/10 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent text-white"
+          : "bg-transparent",
+        isHomePage ? "text-white" : "text-gray-950"
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +112,10 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden bg-white/10 backdrop-blur-md rounded-lg mt-2 border border-white/10"
+              className={cn(
+                "md:hidden overflow-hidden bg-white/10 backdrop-blur-md rounded-lg mt-2 border border-white/10",
+                isHomePage ? "text-white" : "text-gray-950"
+              )}
             >
               <div className="px-4 py-2 space-y-1">
                 {navItems.map((item) => (
