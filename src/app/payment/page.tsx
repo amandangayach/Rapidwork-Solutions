@@ -37,7 +37,7 @@ export default function PaymentPage() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       amount: "",
-      currency: "USD",
+      currency: "GBP",
     },
   });
 
@@ -146,11 +146,11 @@ export default function PaymentPage() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="USD">USD - US Dollar</SelectItem>
-                          <SelectItem value="EUR">EUR - Euro</SelectItem>
                           <SelectItem value="GBP">
                             GBP - British Pound
                           </SelectItem>
+                          <SelectItem value="USD">USD - US Dollar</SelectItem>
+                          <SelectItem value="EUR">EUR - Euro</SelectItem>
                           <SelectItem value="AUD">
                             AUD - Australian Dollar
                           </SelectItem>

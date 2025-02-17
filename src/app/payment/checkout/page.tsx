@@ -84,7 +84,7 @@ function CheckoutContent() {
         className="w-full lg:w-1/2 min-h-screen flex items-center justify-center p-4 lg:p-12 relative"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background via-primary-100/10 to-background/0" />
-        <div className="w-full max-w-md relative z-10">
+        <div className="w-full py-16 max-w-md relative z-10">
           <MotionDiv
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
