@@ -1,46 +1,106 @@
 import { MotionDiv } from "@/components/animations/MotionDiv";
-import { Icons } from "@/components/shared/Icons";
+import Image from "next/image";
 import React from "react";
 
-type ServiceIcon = "webdev" | "content" | "marketing" | "consulting" | "erp" | "mobile";
-
-const services: { title: string; description: string; icon: ServiceIcon; gradient: string }[] = [
+const services = [
   {
     title: "Web Development",
-    description: "Custom websites and web applications built with cutting-edge technologies",
-    icon: "webdev",
-    gradient: "from-blue-500 to-cyan-500",
-  },
-  {
-    title: "Content Writing",
-    description: "SEO-optimized content that engages your audience and drives results",
-    icon: "content",
-    gradient: "from-purple-500 to-pink-500",
-  },
-  {
-    title: "Digital Marketing",
-    description: "Strategic digital marketing solutions to grow your online presence",
-    icon: "marketing",
-    gradient: "from-orange-500 to-red-500",
-  },
-  {
-    title: "Business Consultancy",
-    description: "Strategic business solutions and expert consulting for sustainable growth",
-    icon: "consulting",
-    gradient: "from-green-500 to-emerald-500",
+    description: "Elevate your digital presence with our cutting-edge web development solutions. We create scalable, high-performance applications that deliver exceptional user experiences. Our team leverages the latest technologies and best practices to ensure your web applications are future-proof and maintainable.",
+    features: [
+      "Progressive Web Apps with Next.js and React",
+      "Custom API development with Node.js",
+      "Database design and optimization",
+      "Cloud deployment and scaling solutions",
+      "Performance optimization and caching",
+      "Security implementation and testing"
+    ],
+    gradient: "from-primary-500 to-secondary-500",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166"
   },
   {
     title: "ERP Solutions",
-    description: "Integrated enterprise solutions to streamline your business operations",
-    icon: "erp",
+    description: "Transform your business operations with our comprehensive ERP solutions. We design and implement custom enterprise systems that streamline processes, enhance productivity, and provide real-time insights into your business performance. Our solutions are tailored to meet your specific industry requirements.",
+    features: [
+      "Comprehensive business process automation",
+      "Resource planning and management",
+      "Supply chain optimization",
+      "Financial management and reporting",
+      "Inventory and warehouse management",
+      "Business intelligence and analytics"
+    ],
     gradient: "from-primary to-secondary",
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984"
+  },
+  {
+    title: "AI & Machine Learning",
+    description: "Harness the power of artificial intelligence to drive innovation and efficiency. Our AI solutions help businesses automate processes, gain valuable insights, and make data-driven decisions. We develop custom AI models and integrate them seamlessly into your existing systems.",
+    features: [
+      "Custom AI model development",
+      "Natural Language Processing (NLP)",
+      "Computer Vision solutions",
+      "Predictive analytics",
+      "AI-powered automation",
+      "Machine learning pipelines"
+    ],
+    gradient: "from-primary-500 to-secondary-500",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
   },
   {
     title: "Mobile Development",
-    description: "Native and cross-platform mobile apps for iOS and Android",
-    icon: "mobile",
-    gradient: "from-yellow-500 to-orange-500",
+    description: "Create immersive mobile experiences that engage and delight your users. Our mobile development team builds native and cross-platform applications that combine beautiful design with powerful functionality. We ensure your apps perform flawlessly across all devices and platforms.",
+    features: [
+      "iOS and Android native development",
+      "Cross-platform solutions with React Native",
+      "Mobile UI/UX design",
+      "App performance optimization",
+      "Push notification systems",
+      "Mobile backend integration"
+    ],
+    gradient: "from-primary-500 to-secondary-500",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c"
   },
+  {
+    title: "Business Consultancy",
+    description: "Transform your business with our strategic consulting services. Our experienced consultants work closely with you to analyze your business, identify opportunities, and develop actionable strategies for growth. We provide comprehensive guidance to help you make informed decisions and achieve your business objectives.",
+    features: [
+      "Strategic business planning",
+      "Process optimization",
+      "Market analysis and research",
+      "Growth strategy development",
+      "Risk assessment and management",
+      "Performance monitoring and analytics"
+    ],
+    gradient: "from-primary-500 to-secondary-500",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+  },
+  {
+    title: "Content Writing",
+    description: "Engage your audience with compelling, SEO-optimized content that drives results. Our expert content team crafts high-quality, strategic content that tells your brand story, builds authority, and connects with your target audience. We ensure your content strategy aligns with your business goals and market demands.",
+    features: [
+      "SEO-optimized website content",
+      "Technical documentation",
+      "Blog posts and articles",
+      "Social media content",
+      "Email marketing campaigns",
+      "Brand storytelling and messaging"
+    ],
+    gradient: "from-primary-500 to-secondary-500",
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a"
+  },
+  {
+    title: "Digital Marketing",
+    description: "Maximize your online presence with our comprehensive digital marketing solutions. We develop and execute data-driven marketing strategies that increase visibility, engage customers, and drive conversions. Our holistic approach ensures your marketing efforts deliver measurable results and ROI.",
+    features: [
+      "Search Engine Optimization (SEO)",
+      "Social Media Marketing",
+      "Pay-Per-Click Advertising",
+      "Email Marketing Automation",
+      "Content Marketing Strategy",
+      "Analytics and Performance Tracking"
+    ],
+    gradient: "from-primary-500 to-secondary-500",
+    image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec"
+  }
 ];
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => (
@@ -49,16 +109,48 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
     viewport={{ once: true }}
-    className="group relative overflow-hidden rounded-xl bg-foreground/5 p-6 backdrop-blur-sm hover:bg-foreground/10 transition-all duration-300"
+    className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center my-20 p-8 rounded-2xl shadow-lg bg-background/20"
   >
-    <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-br ${service.gradient} transition-opacity duration-300`} />
-    <div className="relative z-10">
-      <div className={`inline-flex rounded-lg bg-gradient-to-br ${service.gradient} p-3 text-white shadow-lg`}>
-        <Icons name={service.icon} className="h-6 w-6" />
+    {/* Content Side */}
+    <MotionDiv
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      viewport={{ once: true }}
+      className={`relative ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}
+    >
+      <h3 className={`text-2xl font-semibold mb-4 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+        {service.title}
+      </h3>
+      <p className="text-foreground/70 mb-6 leading-relaxed">{service.description}</p>
+      <ul className="space-y-3">
+        {service.features.map((feature, i) => (
+          <li key={i} className="flex items-start space-x-2">
+            <span className="text-primary mt-1">•</span>
+            <span className="text-foreground/80">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </MotionDiv>
+
+    {/* Image Side */}
+    <MotionDiv
+      initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      viewport={{ once: true }}
+      className={`relative ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}
+    >
+      <div className="relative h-[400px] rounded-2xl overflow-hidden">
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          className="object-cover"
+        />
+        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`} />
       </div>
-      <h3 className="mt-4 text-xl font-semibold text-foreground">{service.title}</h3>
-      <p className="mt-2 text-foreground/70">{service.description}</p>
-    </div>
+    </MotionDiv>
   </MotionDiv>
 );
 
@@ -75,17 +167,17 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
               Our Services
             </span>
           </h2>
-          <p className="mt-4 text-foreground/80 max-w-2xl mx-auto">
+          <p className="mt-4 text-foreground/80 max-w-3xl mx-auto text-lg">
             Comprehensive digital solutions tailored to your business needs
           </p>
         </MotionDiv>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-20">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

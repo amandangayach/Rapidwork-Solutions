@@ -27,8 +27,8 @@ const About = () => {
             >
               <div className="relative h-[30rem] w-full rounded-2xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
-                  alt="Team collaboration"
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72"
+                  alt="Modern office with team"
                   fill
                   className="object-cover"
                   priority
@@ -59,46 +59,17 @@ const About = () => {
 
             <div className="space-y-4 text-foreground/80">
               <p>
-                At Rapidwork Solutions, we leverage cutting-edge Artificial
-                Intelligence (AI) and machine learning technologies to deliver
-                innovative enterprise IT solutions. Our expertise spans across
-                custom software development, AI integration, and digital
-                transformation, helping businesses stay ahead in today's
-                competitive landscape.
+                At Rapidwork Solutions, we specialize in delivering cutting-edge AI and 
+                machine learning solutions for enterprises. Our expertise in custom software 
+                development and digital transformation helps businesses modernize and scale 
+                efficiently.
               </p>
 
               <p className="mb-8">
-                With a proven track record of successful implementations and a
-                dedicated team of experts, we provide scalable, AI-powered
-                solutions that drive efficiency and growth. Our commitment to
-                excellence, combined with state-of-the-art technology and 24/7
-                support, ensures your business receives the highest quality
-                service and exceptional results.
+                With our dedicated team of experts and 24/7 support, we ensure your 
+                business receives high-quality service and exceptional results that drive 
+                growth and innovation.
               </p>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-                {aboutData.map((stat, index) => (
-                  <MotionDiv
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-center p-4 rounded-lg bg-foreground/5 backdrop-blur-sm"
-                  >
-                    <div className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent">
-                      {stat.number}
-                    </div>
-                    <div className="text-sm font-medium text-foreground/90 mt-1">
-                      {stat.label}
-                    </div>
-                    <div className="text-xs text-foreground/60 mt-1">
-                      {stat.detail}
-                    </div>
-                  </MotionDiv>
-                ))}
-              </div>
             </div>
           </MotionDiv>
         </MotionSection>
