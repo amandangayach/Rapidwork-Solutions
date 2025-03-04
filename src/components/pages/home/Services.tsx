@@ -1,105 +1,37 @@
 import { MotionDiv } from "@/components/animations/MotionDiv";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 
 const services = [
   {
     title: "Web Development",
-    description: "Elevate your digital presence with our cutting-edge web development solutions. We create scalable, high-performance applications that deliver exceptional user experiences. Our team leverages the latest technologies and best practices to ensure your web applications are future-proof and maintainable.",
-    features: [
-      "Progressive Web Apps with Next.js and React",
-      "Custom API development with Node.js",
-      "Database design and optimization",
-      "Cloud deployment and scaling solutions",
-      "Performance optimization and caching",
-      "Security implementation and testing"
-    ],
-    gradient: "from-primary-500 to-secondary-500",
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166"
-  },
-  {
-    title: "ERP Solutions",
-    description: "Transform your business operations with our comprehensive ERP solutions. We design and implement custom enterprise systems that streamline processes, enhance productivity, and provide real-time insights into your business performance. Our solutions are tailored to meet your specific industry requirements.",
-    features: [
-      "Comprehensive business process automation",
-      "Resource planning and management",
-      "Supply chain optimization",
-      "Financial management and reporting",
-      "Inventory and warehouse management",
-      "Business intelligence and analytics"
-    ],
-    gradient: "from-primary to-secondary",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984"
-  },
-  {
-    title: "AI & Machine Learning",
-    description: "Harness the power of artificial intelligence to drive innovation and efficiency. Our AI solutions help businesses automate processes, gain valuable insights, and make data-driven decisions. We develop custom AI models and integrate them seamlessly into your existing systems.",
-    features: [
-      "Custom AI model development",
-      "Natural Language Processing (NLP)",
-      "Computer Vision solutions",
-      "Predictive analytics",
-      "AI-powered automation",
-      "Machine learning pipelines"
-    ],
-    gradient: "from-primary-500 to-secondary-500",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
-  },
-  {
-    title: "Mobile App Development",
-    description: "Create immersive mobile experiences that engage and delight your users. Our mobile development team builds native and cross-platform applications that combine beautiful design with powerful functionality. We ensure your apps perform flawlessly across all devices and platforms.",
-    features: [
-      "iOS and Android native development",
-      "Cross-platform solutions with React Native",
-      "Mobile UI/UX design",
-      "App performance optimization",
-      "Push notification systems",
-      "Mobile backend integration"
-    ],
-    gradient: "from-primary-500 to-secondary-500",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c"
-  },
-  {
-    title: "Business Consultancy",
-    description: "Transform your business with our strategic consulting services. Our experienced consultants work closely with you to analyze your business, identify opportunities, and develop actionable strategies for growth. We provide comprehensive guidance to help you make informed decisions and achieve your business objectives.",
-    features: [
-      "Strategic business planning",
-      "Process optimization",
-      "Market analysis and research",
-      "Growth strategy development",
-      "Risk assessment and management",
-      "Performance monitoring and analytics"
-    ],
-    gradient: "from-primary-500 to-secondary-500",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
-  },
-  {
-    title: "Content Writing",
-    description: "Engage your audience with compelling, SEO-optimized content that drives results. Our expert content team crafts high-quality, strategic content that tells your brand story, builds authority, and connects with your target audience. We ensure your content strategy aligns with your business goals and market demands.",
-    features: [
-      "SEO-optimized website content",
-      "Technical documentation",
-      "Blog posts and articles",
-      "Social media content",
-      "Email marketing campaigns",
-      "Brand storytelling and messaging"
-    ],
-    gradient: "from-primary-500 to-secondary-500",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a"
+    description: "Modern, responsive web solutions built for performance",
+    imageUrl: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Digital Marketing",
-    description: "Maximize your online presence with our comprehensive digital marketing solutions. We develop and execute data-driven marketing strategies that increase visibility, engage customers, and drive conversions. Our holistic approach ensures your marketing efforts deliver measurable results and ROI.",
-    features: [
-      "Search Engine Optimization (SEO)",
-      "Social Media Marketing",
-      "Pay-Per-Click Advertising",
-      "Email Marketing Automation",
-      "Content Marketing Strategy",
-      "Analytics and Performance Tracking"
-    ],
-    gradient: "from-primary-500 to-secondary-500",
-    image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec"
+    description: "Data-driven strategies to boost your online presence",
+    imageUrl: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Mobile App Development",
+    description: "Native and cross-platform apps that deliver results",
+    imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Business Consultancy",
+    description: "Strategic guidance to optimize and scale your business",
+    imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Content Writing",
+    description: "Engaging content that connects with your audience",
+    imageUrl: "https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "AI & Machine Learning",
+    description: "Intelligent solutions that automate and innovate",
+    imageUrl: "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   }
 ];
 
@@ -109,79 +41,95 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
     viewport={{ once: true }}
-    className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center my-20 p-8 rounded-2xl shadow-lg bg-background/20"
+    className="relative group rounded-xl overflow-clip h-96"
   >
-    {/* Content Side */}
-    <MotionDiv
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      viewport={{ once: true }}
-      className={`relative ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}
-    >
-      <h3 className={`text-2xl font-semibold mb-4 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-        {service.title}
-      </h3>
-      <p className="text-foreground/70 mb-6 leading-relaxed">{service.description}</p>
-      <ul className="space-y-3">
-        {service.features.map((feature, i) => (
-          <li key={i} className="flex items-start space-x-2">
-            <span className="text-primary mt-1">•</span>
-            <span className="text-foreground/80">{feature}</span>
-          </li>
-        ))}
-      </ul>
-    </MotionDiv>
-
-    {/* Image Side */}
-    <MotionDiv
-      initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay: 0.4 }}
-      viewport={{ once: true }}
-      className={`relative ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}
-    >
-      <div className="relative h-[400px] rounded-2xl overflow-hidden">
-        <Image
-          src={service.image}
-          alt={service.title}
-          fill
-          className="object-cover"
-        />
-        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`} />
+    
+    {/* Card content */}
+    <div className="relative h-full rounded-xl overflow-hidden shadow-lg border border-blue-600/30 group-hover:border-blue-600/70 transition-colors duration-300">
+      <Image
+        src={service.imageUrl}
+        alt={service.title}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-110"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30"></div>
+      
+      <div className="absolute inset-0 flex flex-col justify-end p-6">
+        <MotionDiv
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
+          <p className="text-gray-200 mb-6">{service.description}</p>
+          
+          <Link href="/services" passHref>
+            <div className="flex items-center group/link">
+              <span className="text-blue-400 font-medium group-hover/link:text-blue-300 transition-colors">Learn More</span>
+              <div className="relative w-8 h-8 ml-2 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center transform group-hover/link:translate-x-8 group-hover/link:translate-y-8 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 group-hover/link:text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center transform translate-x-8 translate-y-8 group-hover/link:translate-x-0 group-hover/link:translate-y-0 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 group-hover/link:text-blue-300 transform rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </MotionDiv>
       </div>
-    </MotionDiv>
+    </div>
   </MotionDiv>
 );
 
 const Services = () => {
   return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-primary-100/10 to-background/0" />
-      
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
       <div className="container mx-auto px-4">
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-              Our Services
-            </span>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+            Our Services
           </h2>
-          <p className="mt-4 text-foreground/80 max-w-3xl mx-auto text-lg">
-            Comprehensive digital solutions tailored to your business needs
+          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Comprehensive digital solutions tailored to elevate your business
           </p>
         </MotionDiv>
 
-        <div className="space-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
+
+        <MotionDiv
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <Link href="/services" passHref>
+            <span className="inline-flex items-center px-8 py-3 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-md font-medium transition-colors duration-300 cursor-pointer group">
+              View All Services
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform group-hover:rotate-45 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </span>
+          </Link>
+        </MotionDiv>
       </div>
     </section>
   );
