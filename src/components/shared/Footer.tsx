@@ -133,9 +133,12 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white">Contact Us</h3>
             <ul className="space-y-3">
               {[
-                { Icon: MapPin, text: "123 Business Street, Tech City, 12345" },
-                { Icon: Phone, text: "+91 (234) 567-8900" },
-                { Icon: Mail, text: "contact@rapidwork.com" },
+                {
+                  Icon: MapPin,
+                  text: "Naya Katla, Dausa, Rajasthan, India - 303303",
+                },
+                { Icon: Phone, text: " +91 77377 78406" },
+                { Icon: Mail, text: "admin@rapidworksolutions.com" },
               ].map(({ Icon, text }, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <Icon size={16} className="text-primary-400" />

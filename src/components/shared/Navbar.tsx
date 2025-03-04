@@ -10,7 +10,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Testimonials", href: "/testimonials" },
+  { name: "Reviews", href: "/reviews" },
 ];
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     setMounted(true);
@@ -41,17 +41,17 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isHomePage ? "text-white" : "text-gray-950",
         scrolled
-          ? "bg-white/10 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent",
-        isHomePage ? "text-white" : "text-gray-950"
+          ? "bg-white/10 backdrop-blur-md border-b border-white/10 text-gray-400"
+          : "bg-transparent "
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
           >
             Rapidwork
@@ -60,27 +60,23 @@ const Navbar = () => {
           {/* Navigation Items - Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="relative group"
-              >
+              <Link key={item.name} href={item.href} className="relative group">
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all group-hover:w-full" />
               </Link>
             ))}
-            
+
             <Link
               href="/contact"
-              className="px-6 py-2 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 transition-opacity"
+              className="px-6 py-2 rounded-full bg-[#15c3e0] text-white hover:opacity-90 transition-opacity"
             >
               Contact
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
+          <button
+            onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-zinc-900"
             aria-label="Toggle menu"
             type="button"
@@ -95,10 +91,7 @@ const Navbar = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={isOpen 
-                  ? "M6 18L18 6M6 6l12 12" 
-                  : "M4 6h16M4 12h16M4 18h16"
-                }
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
               />
             </svg>
           </button>
@@ -132,7 +125,7 @@ const Navbar = () => {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2 mt-2 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 transition-opacity text-center"
+                  className="block px-4 py-2 mt-2 rounded-lg bg-[#15c3e0] text-white hover:opacity-90 transition-opacity text-center"
                 >
                   Contact
                 </Link>

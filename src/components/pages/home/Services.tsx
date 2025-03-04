@@ -46,7 +46,7 @@ const services = [
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
   },
   {
-    title: "Mobile Development",
+    title: "Mobile App Development",
     description: "Create immersive mobile experiences that engage and delight your users. Our mobile development team builds native and cross-platform applications that combine beautiful design with powerful functionality. We ensure your apps perform flawlessly across all devices and platforms.",
     features: [
       "iOS and Android native development",

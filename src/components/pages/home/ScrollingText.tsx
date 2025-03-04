@@ -9,8 +9,9 @@ const ScrollingText = () => {
     offset: ["start end", "end start"],
   });
 
-  const x1 = useTransform(scrollYProgress, [0, 1], [0, -600]);
-  const x2 = useTransform(scrollYProgress, [0, 1], [0, 600]);
+  // Modify these transformations to start from off-screen and pass through center
+  const x1 = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [600, 0, 0, -600]);
+  const x2 = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [-600, 0, 0, 600]);
 
   return (
     <div
@@ -20,13 +21,13 @@ const ScrollingText = () => {
       <div className="relative flex flex-col gap-4 text-4xl md:text-6xl font-bold">
         <motion.div
           style={{ x: x1 }}
-          className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+          className="=text-center text-[#15c3e0]"
         >
           Transforming Businesses
         </motion.div>
         <motion.div
           style={{ x: x2 }}
-          className="bg-gradient-to-r from-secondary-500 to-primary-500 bg-clip-text text-transparent"
+          className="text-[#15c3e0] text-center"
         >
           Through Innovation
         </motion.div>

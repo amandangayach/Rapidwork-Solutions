@@ -23,7 +23,7 @@ const Hero = () => {
           Rapidwork Solutions
           </h1>
           <p className="mt-6 text-lg md:text-xl text-slate-400 font-medium max-w-2xl mx-auto">
-          Enlighten Small Businesses to Digital World
+          Enlighten Businesses to Digital World
           </p>
         </motion.div>
       </LampContainer>
