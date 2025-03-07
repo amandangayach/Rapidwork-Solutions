@@ -104,7 +104,7 @@ const Review = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
             What Our Clients Say
           </h2>
-          <div className="w-24 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-primary-500 dark:bg-primary-400 mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             We take pride in delivering exceptional services that exceed expectations.
             Here's what our clients have to say about working with us.
@@ -158,7 +158,7 @@ const Review = () => {
                         transition={{ delay: 0.3, duration: 0.5 }}
                       >
                         <div className="mb-4">
-                          <svg className="text-blue-500 h-8 w-8 mb-3 mx-auto md:ml-0" fill="currentColor" viewBox="0 0 24 24">
+                          <svg className="text-primary-500 h-8 w-8 mb-3 mx-auto md:ml-0" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                           </svg>
                           <p className="text-gray-600 dark:text-gray-300 text-lg italic">
@@ -169,7 +169,7 @@ const Review = () => {
                           <h4 className="font-bold text-xl text-gray-900 dark:text-white">
                             {testimonial.name}
                           </h4>
-                          <p className="text-blue-600 dark:text-blue-400">
+                          <p className="text-primary-500 dark:text-primary-400">
                             {testimonial.role}, {testimonial.company}
                           </p>
                         </div>
@@ -188,7 +188,7 @@ const Review = () => {
                 onClick={() => setActiveIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeIndex
-                    ? "bg-blue-600 dark:bg-blue-500 w-8"
+                    ? "bg-primary-500 dark:bg-primary-400 w-8"
                     : "bg-gray-300 dark:bg-gray-600"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}

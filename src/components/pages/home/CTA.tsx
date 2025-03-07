@@ -1,14 +1,8 @@
 "use client"
 import { MotionDiv } from '@/components/animations/MotionDiv'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Bot } from 'lucide-react'
-
-const stats = [
-  { number: "100+", label: "Happy Clients", description: "Across various Countries" },
-  { number: "350+", label: "Projects Delivered", description: "On Time & Budget" },
-  { number: "315+", label: "5-Star Reviews", description: "Client Satisfaction" },
-  { number: "25+", label: "Employees", description: "Tech Specialists" }
-]
+import { ArrowRight } from 'lucide-react'
+import GrowthChart from './GrowthChart'
 
 const CTA = () => {
   return (
@@ -52,7 +46,7 @@ const CTA = () => {
                 solutions that drive growth and efficiency.
               </p>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 pt-2">
                 <Button 
                   size="lg"
                   className="bg-primary-500 hover:bg-primary-600"
@@ -68,31 +62,35 @@ const CTA = () => {
                   See All Services
                 </Button>
               </div>
+              
+              <div className="pt-4">
+                <div className="flex items-center space-x-8 text-white/90">
+                  <div className="flex items-center">
+                    <div className="w-3 h-3 rounded-full bg-blue-400 mr-2"></div>
+                    <span>100+ Happy Clients</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-3 h-3 rounded-full bg-primary-400 mr-2"></div>
+                    <span>350+ Projects</span>
+                  </div>
+                </div>
+              </div>
             </MotionDiv>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <MotionDiv
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="p-6 rounded-xl bg-white/5 backdrop-blur-sm"
-                >
-                  <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-                    {stat.number}
-                  </div>
-                  <div className="text-lg font-semibold text-white mt-2">
-                    {stat.label}
-                  </div>
-                  <div className="text-sm text-white/60">
-                    {stat.description}
-                  </div>
-                </MotionDiv>
-              ))}
-            </div>
+            {/* Growth Chart */}
+            <MotionDiv
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-4 relative overflow-hidden h-[400px]"
+            >
+              <div className="absolute top-4 left-4 z-10">
+                <h3 className="text-white font-medium text-lg">Business Growth</h3>
+              </div>
+              
+              <GrowthChart />
+            </MotionDiv>
           </div>
         </div>
       </div>

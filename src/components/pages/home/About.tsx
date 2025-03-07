@@ -1,7 +1,6 @@
 import Image from "next/image";
 import MotionSection from "@/components/animations/MotionSection";
 import { MotionDiv } from "@/components/animations/MotionDiv";
-import { aboutData } from "@/lib/constants";
 
 const About = () => {
   return (
@@ -43,7 +42,7 @@ const About = () => {
             <div className="absolute -top-6 -right-6 w-64 h-64 bg-gradient-to-r from-secondary-500/10 to-primary-500/10 rounded-full blur-3xl" />
           </div>
 
-          {/* Content Side */}
+          {/* Content Side with Title */}
           <MotionDiv
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,12 +50,19 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+            {/* Title Section - Now placed here instead of at the top */}
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
                 About Rapidwork Solutions
-              </span>
-            </h2>
+              </h2>
+              <div className="w-24 h-1 bg-blue-600 dark:bg-blue-500 mb-6"></div>
+              <p className="text-gray-600 dark:text-gray-300">
+                Delivering cutting-edge AI and machine learning solutions for enterprises 
+                with a focus on quality and innovation.
+              </p>
+            </div>
 
+            {/* Content Paragraphs */}
             <div className="space-y-4 text-foreground/80">
               <p>
                 At Rapidwork Solutions, we specialize in delivering cutting-edge AI and 

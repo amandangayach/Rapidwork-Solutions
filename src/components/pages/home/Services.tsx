@@ -45,7 +45,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
   >
     
     {/* Card content */}
-    <div className="relative h-full rounded-xl overflow-hidden shadow-lg border border-blue-600/30 group-hover:border-blue-600/70 transition-colors duration-300">
+    <div className="relative h-full rounded-xl overflow-hidden shadow-lg border border-primary-500/30 group-hover:border-primary-500/70 transition-colors duration-300">
       <Image
         src={service.imageUrl}
         alt={service.title}
@@ -67,15 +67,15 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           
           <Link href="/services" passHref>
             <div className="flex items-center group/link">
-              <span className="text-blue-400 font-medium group-hover/link:text-blue-300 transition-colors">Learn More</span>
+              <span className="text-primary-400 font-medium group-hover/link:text-primary-300 transition-colors">Learn More</span>
               <div className="relative w-8 h-8 ml-2 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center transform group-hover/link:translate-x-8 group-hover/link:translate-y-8 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 group-hover/link:text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400 group-hover/link:text-primary-300" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center transform translate-x-8 translate-y-8 group-hover/link:translate-x-0 group-hover/link:translate-y-0 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 group-hover/link:text-blue-300 transform rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400 group-hover/link:text-primary-300 transform rotate-45" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </div>
@@ -102,7 +102,7 @@ const Services = () => {
           <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
             Our Services
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Comprehensive digital solutions tailored to elevate your business
           </p>
@@ -122,7 +122,7 @@ const Services = () => {
           className="mt-16 text-center"
         >
           <Link href="/services" passHref>
-            <span className="inline-flex items-center px-8 py-3 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-md font-medium transition-colors duration-300 cursor-pointer group">
+            <span className="inline-flex items-center px-8 py-3 border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white rounded-full font-medium transition-colors duration-300 cursor-pointer group">
               View All Services
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform group-hover:rotate-45 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
