@@ -4,7 +4,7 @@ import { MotionDiv } from "@/components/animations/MotionDiv";
 
 const About = () => {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-20 overflow-hidden" id="about">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary-100/10 to-background/0" />
 
       <div className="container mx-auto px-4 max-w-7xl">
@@ -26,8 +26,8 @@ const About = () => {
             >
               <div className="relative h-[30rem] w-full rounded-2xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72"
-                  alt="Modern office with team"
+                  src="https://images.unsplash.com/photo-1510074377623-8cf13fb86c08?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Office"
                   fill
                   className="object-cover"
                   priority

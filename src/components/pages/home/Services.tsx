@@ -1,39 +1,15 @@
 import { MotionDiv } from "@/components/animations/MotionDiv";
 import Image from "next/image";
 import Link from "next/link";
+import { servicesData } from "@/lib/constants/services";
 
-const services = [
-  {
-    title: "Web Development",
-    description: "Modern, responsive web solutions built for performance",
-    imageUrl: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Digital Marketing",
-    description: "Data-driven strategies to boost your online presence",
-    imageUrl: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Mobile App Development",
-    description: "Native and cross-platform apps that deliver results",
-    imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Business Consultancy",
-    description: "Strategic guidance to optimize and scale your business",
-    imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "Content Writing",
-    description: "Engaging content that connects with your audience",
-    imageUrl: "https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    title: "AI & Machine Learning",
-    description: "Intelligent solutions that automate and innovate",
-    imageUrl: "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  }
-];
+// Map the services to include IDs from servicesData
+const services = servicesData.map(service => ({
+  title: service.title,
+  description: service.shortDescription,
+  imageUrl: service.imageUrl,
+  id: service.id // Include service ID
+}));
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => (
   <MotionDiv
@@ -65,7 +41,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
           <p className="text-gray-200 mb-6">{service.description}</p>
           
-          <Link href="/services" passHref>
+          <Link href={`/services#${service.id}`} passHref>
             <div className="flex items-center group/link">
               <span className="text-primary-400 font-medium group-hover/link:text-primary-300 transition-colors">Learn More</span>
               <div className="relative w-8 h-8 ml-2 overflow-hidden">
