@@ -1,11 +1,10 @@
 import Image from "next/image";
 import MotionSection from "@/components/animations/MotionSection";
 import { MotionDiv } from "@/components/animations/MotionDiv";
-import { aboutData } from "@/lib/constants";
 
 const About = () => {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-20 overflow-hidden" id="about">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary-100/10 to-background/0" />
 
       <div className="container mx-auto px-4 max-w-7xl">
@@ -27,8 +26,8 @@ const About = () => {
             >
               <div className="relative h-[30rem] w-full rounded-2xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72"
-                  alt="Modern office with team"
+                  src="https://images.unsplash.com/photo-1510074377623-8cf13fb86c08?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Office"
                   fill
                   className="object-cover"
                   priority
@@ -43,7 +42,7 @@ const About = () => {
             <div className="absolute -top-6 -right-6 w-64 h-64 bg-gradient-to-r from-secondary-500/10 to-primary-500/10 rounded-full blur-3xl" />
           </div>
 
-          {/* Content Side */}
+          {/* Content Side with Title */}
           <MotionDiv
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,12 +50,19 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+            {/* Title Section - Now placed here instead of at the top */}
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
                 About Rapidwork Solutions
-              </span>
-            </h2>
+              </h2>
+              <div className="w-24 h-1 bg-blue-600 dark:bg-blue-500 mb-6"></div>
+              <p className="text-gray-600 dark:text-gray-300">
+                Delivering cutting-edge AI and machine learning solutions for enterprises 
+                with a focus on quality and innovation.
+              </p>
+            </div>
 
+            {/* Content Paragraphs */}
             <div className="space-y-4 text-foreground/80">
               <p>
                 At Rapidwork Solutions, we specialize in delivering cutting-edge AI and 

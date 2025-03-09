@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About", href: "/#about" },
   { name: "Services", href: "/services" },
-  { name: "Reviews", href: "/reviews" },
+  { name: "Reviews", href: "/#reviews" },
 ];
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname === "/services";
 
   useEffect(() => {
     setMounted(true);
