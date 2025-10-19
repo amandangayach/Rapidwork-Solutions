@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/" || pathname === "/services" || pathname === '/terms';
+  const isHomePage = pathname === "/" || pathname === "/services" || pathname === '/terms' || pathname === '/privacy' || pathname === '/refund';
 
   useEffect(() => {
     setMounted(true);

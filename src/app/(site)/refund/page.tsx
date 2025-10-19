@@ -44,7 +44,7 @@ const RefundPolicy = () => {
                 Please read our refund policy carefully before using our services
               </p>
               <p className="text-lg text-gray-400">
-                Last updated on 19-10-2025 16:25:01
+                Last updated on 19-10-2025
               </p>
             </div>
           </MotionDiv>
