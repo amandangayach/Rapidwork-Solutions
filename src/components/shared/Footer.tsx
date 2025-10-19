@@ -163,16 +163,16 @@ const Footer = () => {
             </p>
             <div className="flex gap-6 text-sm text-white/60">
               <Link
-                href="#"
+                href="/terms"
                 className="hover:text-primary-400 transition-colors"
               >
-                Privacy Policy
+                Terms & Conditions
               </Link>
               <Link
-                href="#"
+                href="/refund"
                 className="hover:text-primary-400 transition-colors"
               >
-                Terms of Service
+                Refund Policy
               </Link>
             </div>
           </div>

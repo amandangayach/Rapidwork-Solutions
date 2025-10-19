@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/" || pathname === "/services";
+  const isHomePage = pathname === "/" || pathname === "/services" || pathname === '/terms';
 
   useEffect(() => {
     setMounted(true);
@@ -67,7 +67,7 @@ const Navbar = () => {
             ))}
 
             <Link
-              href="/contact"
+              href="/#contact"
               className="px-6 py-2 rounded-full bg-[#15c3e0] text-white hover:opacity-90 transition-opacity"
             >
               Contact
