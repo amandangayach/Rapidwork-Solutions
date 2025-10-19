@@ -9,6 +9,7 @@ import {
   MapPin,
   Phone,
   Twitter,
+  User,
 } from "lucide-react";
 
 const Footer = () => {
@@ -134,11 +135,15 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 {
-                  Icon: MapPin,
-                  text: "Naya Katla, Dausa, Rajasthan, India - 303303",
+                  Icon: User,
+                  text: "Merchant Legal entity name: AMAN DANGAYACH",
                 },
-                { Icon: Phone, text: " +91 77377 78406" },
-                { Icon: Mail, text: "admin@rapidworksolutions.com" },
+                {
+                  Icon: MapPin,
+                  text: "Dangayach Bhawan, Naya Katla, Dausa, Rajasthan, PIN: 303303",
+                },
+                { Icon: Phone, text: "+91 9001111430" },
+                { Icon: Mail, text: "rwspay@gmail.com" },
               ].map(({ Icon, text }, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <Icon size={16} className="text-primary-400" />
