@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import LogoWhite from '@/assets/RWS Logo Full white.png';
+import Logo from '@/assets/RWS Logo Full.png'
+import Image from "next/image";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -50,11 +53,14 @@ const Navbar = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
-          >
-            Rapidwork
+          <Link href="/" className="flex items-center">
+            <Image
+              src={isHomePage && !scrolled ? LogoWhite : Logo}
+              alt="Rapidwork Solutions Logo"
+              width={180}
+              height={60}
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Navigation Items - Desktop */}

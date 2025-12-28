@@ -11,6 +11,8 @@ import {
   Twitter,
   User,
 } from "lucide-react";
+import LogoWhite from '@/assets/RWS Logo Full white.png';
+import Image from "next/image";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -43,9 +45,15 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-xl font-bold text-white">
-              Rapidwork Solutions
-            </h3>
+            <div className="flex items-center">
+              <Image
+                src={LogoWhite}
+                alt="Rapidwork Solutions Logo"
+                width={225}
+                height={75}
+                className="h-16 w-auto"
+              />
+            </div>
             <p className="text-sm">
               Transforming ideas into digital reality with innovative solutions
               and cutting-edge technology.
@@ -78,14 +86,21 @@ const Footer = () => {
           >
             <h3 className="text-xl font-bold text-white">Quick Links</h3>
             <ul className="space-y-2">
-              {["About Us", "Services", "Projects", "Blog", "Contact"].map(
+              {[
+                { name: "Home", href: "/" },
+                { name: "About Us", href: "/#about" },
+                { name: "Services", href: "/services" },
+                { name: "Contact", href: "/#contact" },
+                { name: "Blog", href: "/blog" },
+                { name: "Projects", href: "/projects" }
+              ].map(
                 (item, index) => (
                   <li key={index}>
                     <Link
-                      href="#"
+                      href={item.href}
                       className="hover:text-primary-400 transition-colors"
                     >
-                      {item}
+                      {item.name}
                     </Link>
                   </li>
                 )
@@ -113,7 +128,7 @@ const Footer = () => {
               ].map((service, index) => (
                 <li key={index}>
                   <Link
-                    href="#"
+                    href="/services"
                     className="hover:text-primary-400 transition-colors"
                   >
                     {service}
