@@ -528,7 +528,7 @@ function PricingCard({
       className={cn(
         "relative flex flex-col rounded-2xl overflow-hidden",
         plan.highlight
-          ? "bg-gradient-to-b from-[#3d4eff] to-[#0b2289] shadow-2xl shadow-blue-900/40 scale-[1.04] z-10 border border-blue-400/30"
+          ? "bg-gradient-to-b from-[#3d4eff] to-[#0b2289] shadow-2xl shadow-blue-900/40 z-10 border border-blue-400/30"
           : "bg-gradient-to-b from-[#1e3a8a] to-[#172554] shadow-xl",
       )}
     >
