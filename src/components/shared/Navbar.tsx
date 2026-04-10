@@ -13,6 +13,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/#about" },
   { name: "Services", href: "/services" },
+  { name: "Pricing", href: "/pricing" },
   { name: "Reviews", href: "/#reviews" },
 ];
 
@@ -21,7 +22,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/" || pathname === "/services" || pathname === '/terms' || pathname === '/privacy' || pathname === '/refund';
+  const isHomePage = pathname === "/" || pathname === "/services" || pathname === "/pricing" || pathname === '/terms' || pathname === '/privacy' || pathname === '/refund';
 
   useEffect(() => {
     setMounted(true);

@@ -3,12 +3,33 @@ import Image from "next/image";
 import Link from "next/link";
 import { servicesData } from "@/lib/constants/services";
 
+// Map service IDs to pricing keys
+const servicePricingMap: Record<string, string> = {
+  "web-development": "web",
+  "digital-marketing": "marketing",
+  "mobile-app-development": "app",
+  "business-consultancy": "consultancy",
+  "content-writing": "content",
+  "ai-machine-learning": "ai",
+};
+
+// Starting prices for each service (from pricing page data)
+const startingPrices: Record<string, { inr: string; usd: string }> = {
+  web: { inr: "₹9,999", usd: "$107" },
+  marketing: { inr: "₹4,999", usd: "$53" },
+  app: { inr: "₹24,999", usd: "$269" },
+  consultancy: { inr: "₹2,999", usd: "$32" },
+  content: { inr: "₹999", usd: "$10" },
+  ai: { inr: "₹14,999", usd: "$161" },
+};
+
 // Map the services to include IDs from servicesData
 const services = servicesData.map(service => ({
   title: service.title,
   description: service.shortDescription,
   imageUrl: service.imageUrl,
-  id: service.id // Include service ID
+  id: service.id, // Include service ID
+  pricingKey: servicePricingMap[service.id],
 }));
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => (
@@ -39,25 +60,55 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-          <p className="text-gray-200 mb-6">{service.description}</p>
+          <p className="text-gray-200 mb-4">{service.description}</p>
           
-          <Link href={`/services#${service.id}`} passHref>
-            <div className="flex items-center group/link">
-              <span className="text-primary-400 font-medium group-hover/link:text-primary-300 transition-colors">Learn More</span>
-              <div className="relative w-8 h-8 ml-2 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center transform group-hover/link:translate-x-8 group-hover/link:translate-y-8 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400 group-hover/link:text-primary-300" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center transform translate-x-8 translate-y-8 group-hover/link:translate-x-0 group-hover/link:translate-y-0 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400 group-hover/link:text-primary-300 transform rotate-45" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
+          {/* Starting Price */}
+          <div className="mb-4">
+            <span className="inline-block text-xs font-semibold text-gray-300 mb-1">Starting from:</span>
+            <p className="text-primary-300 font-bold text-lg">
+              {startingPrices[service.pricingKey]?.inr || "Contact us"}
+            </p>
+          </div>
+
+          <div className="flex flex-row gap-6">
+            {/* Learn More Link */}
+            <Link href={`/services#${service.id}`} passHref>
+              <div className="flex items-center group/link">
+                <span className="text-primary-400 font-medium group-hover/link:text-primary-300 transition-colors">Learn More</span>
+                <div className="relative w-8 h-8 ml-2 overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center transform group-hover/link:translate-x-8 group-hover/link:translate-y-8 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400 group-hover/link:text-primary-300" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center transform translate-x-8 translate-y-8 group-hover/link:translate-x-0 group-hover/link:translate-y-0 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400 group-hover/link:text-primary-300 transform rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+
+            {/* View Pricing Link */}
+            <Link href={`/pricing#${service.pricingKey}`} passHref>
+              <div className="flex items-center group/link">
+                <span className="text-secondary font-medium group-hover/link:text-secondary-500 transition-colors">View Pricing</span>
+                <div className="relative w-8 h-8 ml-2 overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center transform group-hover/link:translate-x-8 group-hover/link:translate-y-8 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-secondary group-hover/link:text-secondary-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center transform translate-x-8 translate-y-8 group-hover/link:translate-x-0 group-hover/link:translate-y-0 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-secondary group-hover/link:text-secondary-500 transform rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
         </MotionDiv>
       </div>
     </div>
